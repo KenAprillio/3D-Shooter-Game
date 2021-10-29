@@ -25,7 +25,7 @@ public class PlayerAnimation : MonoBehaviour
         Movement();
         GetInput();
         SwapAk47();
-        SwapShotgun();
+        SwapShotgun();  
     }
 
     void Movement()
@@ -37,7 +37,8 @@ public class PlayerAnimation : MonoBehaviour
                 if (anim.GetBool("shot") == true)
                 {
                     return;
-                } else if (anim.GetBool("shot") == false)
+                } 
+                else if (anim.GetBool("shot") == false)
                 {
                     anim.SetBool("run", true);
                     anim.SetInteger("condition", 1);
@@ -46,7 +47,7 @@ public class PlayerAnimation : MonoBehaviour
                     moveDir = transform.TransformDirection(moveDir);
                 }
             }
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKeyUp(KeyCode.W))
             {
                 anim.SetBool("run", false);
                 anim.SetInteger("condition", 0);
@@ -79,7 +80,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         anim.SetBool("shot", true);
         anim.SetInteger("condition", 2);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(0.5f);
         anim.SetInteger("condition", 0);
         anim.SetBool("shot", false);
     }
